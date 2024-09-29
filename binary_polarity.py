@@ -61,5 +61,3 @@ test_conf_matrix = confusion_matrix(test_labels, test_preds)
 print("Confusion Matrix (Test Set):")
 print(test_conf_matrix)
 
-# 0 negative 
-# 1 positive 
