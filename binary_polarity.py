@@ -42,7 +42,7 @@ X_train = vectorizer.fit_transform(train_texts)
 X_val = vectorizer.transform(val_texts)
 X_test = vectorizer.transform(test_texts)
 
-clf = LogisticRegression(max_iter=1000)
+clf = LogisticRegression(max_iter=100000)
 clf.fit(X_train, train_labels)
 
 val_preds = clf.predict(X_val)
@@ -60,3 +60,6 @@ print(classification_report(test_labels, test_preds))
 test_conf_matrix = confusion_matrix(test_labels, test_preds)
 print("Confusion Matrix (Test Set):")
 print(test_conf_matrix)
+
+# 0 negative 
+# 1 positive 
