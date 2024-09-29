@@ -47,7 +47,7 @@ clf.fit(X_train, train_labels)
 
 val_preds = clf.predict(X_val)
 print("Validation Accuracy:", accuracy_score(val_labels, val_preds))
-print(classification_report(val_labels, val_preds))
+print(classification_report(val_labels, val_preds, target_names=['negative', 'positive']))
 
 val_conf_matrix = confusion_matrix(val_labels, val_preds)
 print("Confusion Matrix (Validation Set):")
@@ -55,9 +55,8 @@ print(val_conf_matrix)
 
 test_preds = clf.predict(X_test)
 print("Test Accuracy:", accuracy_score(test_labels, test_preds))
-print(classification_report(test_labels, test_preds))
+print(classification_report(test_labels, test_preds, target_names=['negative', 'positive']))
 
 test_conf_matrix = confusion_matrix(test_labels, test_preds)
 print("Confusion Matrix (Test Set):")
 print(test_conf_matrix)
-
