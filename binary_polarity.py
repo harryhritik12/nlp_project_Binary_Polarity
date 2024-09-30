@@ -3,6 +3,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
+
 with open("rt-polarity.pos", 'r', encoding='latin-1') as f:
     positive_texts = f.readlines()
 
@@ -53,6 +54,9 @@ val_conf_matrix = confusion_matrix(val_labels, val_preds)
 print("Confusion Matrix (Validation Set):")
 print(val_conf_matrix)
 
+TN_val, FP_val, FN_val, TP_val = val_conf_matrix.ravel()
+print(f"Validation Set - TP: {TP_val}, TN: {TN_val}, FP: {FP_val}, FN: {FN_val}")
+
 test_preds = clf.predict(X_test)
 print("Test Accuracy:", accuracy_score(test_labels, test_preds))
 print(classification_report(test_labels, test_preds, target_names=['negative', 'positive']))
@@ -60,3 +64,7 @@ print(classification_report(test_labels, test_preds, target_names=['negative', '
 test_conf_matrix = confusion_matrix(test_labels, test_preds)
 print("Confusion Matrix (Test Set):")
 print(test_conf_matrix)
+
+
+TN_test, FP_test, FN_test, TP_test = test_conf_matrix.ravel()
+print(f"Test Set - TP: {TP_test}, TN: {TN_test}, FP: {FP_test}, FN: {FN_test}")
